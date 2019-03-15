@@ -1,9 +1,13 @@
-﻿$object = New-Object -typename psobject -property `
+﻿
+#initialize array
+$array = @()
+
+#inside foreach loop
+        $object = New-Object -typename psobject -property `
         @{
-            
-            MailboxType =  get-mailbox $user | select -ExpandProperty recipienttypedetails 
-            License = get-msoluser -UserPrincipalName $user | select -ExpandProperty islicensed 
-            Userprincipalname = $user
-            ForwardingAddress = get-mailbox $user | Select -expandproperty forwardingaddress
-            ADEnabled = (Get-ADUser -filter "UserPrincipalName -eq '$($user)'").Enabled
+            Computer = $computer.name
+            Used_Space = [math]::round(($disk.size - $disk.freespace)/1Gb)
+            Disk_Size = [math]::round($disk.size/1gb)
         }
+
+        $array += $object

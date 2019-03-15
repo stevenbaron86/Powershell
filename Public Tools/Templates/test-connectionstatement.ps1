@@ -1,0 +1,1 @@
+if(Test-Connection -computername $computer.name -count 1 -quiet){

@@ -1,1 +1,1 @@
-﻿& "C:\Program Files (x86)\putty.exe" -ssh shutdowner@esx1 -pw 3sLZRzBvcGoTqx -m C:\users\stevenb\Desktop\esx1-database.txt
+﻿& "C:\Program Files (x86)\putty.exe" -ssh  -pw  -m 

@@ -1,10 +1,4 @@
-﻿$user = "stevenb"
-$Pass = Get-Content ".\data\stevenb.txt" | ConvertTo-SecureString
-$credential = New-Object -typename System.Management.Automation.PSCredential -argumentlist $user, $Pass
-
-#----------
-
-$credential = Get-Credential
+﻿$credential = Get-Credential
 New-Item -Path .\data -ItemType directory
 $credential.Password | ConvertFrom-SecureString | Out-File ".\data\string.txt"
 $credential.UserName | Out-File ".\data\user.txt"
