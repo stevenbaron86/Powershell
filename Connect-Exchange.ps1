@@ -70,7 +70,7 @@ Connect-MsolService -Credential $UserCredential
 Connect-MicrosoftTeams -credential $UserCredential
 $Session1 = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
 $Session2 = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://ps.compliance.protection.outlook.com/powershell-liveid/ -Credential $UserCredential -Authentication basic -allowredirection
-Import-PSSession $Session1 -AllowClobber
-Import-PSSession $Session2 -AllowClobber
+Import-Module (Import-PSSession $Session1 -AllowClobber) -Global
+Import-Module (Import-PSSession $Session2 -AllowClobber) -Global
 
 }
